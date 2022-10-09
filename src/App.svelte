@@ -7,6 +7,10 @@
   import Wordle from './routes/Wordle.svelte';
 </script>
 
+<main>
+  <nav class="bg-gray-800 text-white text-lg text-center p-4">Worlde- Mateusz Janicki</nav>
+</main>
+
 <Router url="{url}">
   <div>
     <Route path="/" component="{First}" />

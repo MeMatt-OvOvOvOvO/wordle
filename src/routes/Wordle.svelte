@@ -1,8 +1,12 @@
 <script>
-    let url_string = window.location;
-    let url = new URL(url_string);
-    let num = url.searchParams.get("num");
-    console.log(num)
+    import { board } from "../store.js";
+    import Cell from "./Cell.svelte";
+    import Keyboard from "./Keyboard.svelte";
+
+    let url_string = window.location
+    let url = new URL(url_string)
+    let num = parseInt(url.searchParams.get("num"))
+    console.log(num+1)
 
     async function fetchJSON() {
         const response = await fetch('https://random-word-api.herokuapp.com/word');
@@ -17,51 +21,15 @@
 
 
 
-
-
-
-
-
-
-
-
-    let arr = []
-    for(let i = 0; i < num; i++){
-        arr.push(i)
-    }
-
 </script>
-<tbody>
-    <tr>
-        {#each arr as cell}
-            <td class="td">{cell}</td>
-        {/each}
-    </tr>
-    <tr>
-        {#each arr as cell}
-            <td class="td">{cell}</td>
-        {/each}
-    </tr>
-    <tr>
-        {#each arr as cell}
-            <td class="td">{cell}</td>
-        {/each}
-    </tr>
-    <tr>
-        {#each arr as cell}
-            <td class="td">{cell}</td>
-        {/each}
-    </tr>
-    <tr>
-        {#each arr as cell}
-            <td class="td">{cell}</td>
-        {/each}
-    </tr>
-    <tr>
-        {#each arr as cell}
-            <td class="td">{cell}</td>
-        {/each}
-    </tr>
-</tbody>
+<div class="m-16">
+    {#each $board as col, y}
+        <div class="flex justify-center items-center">
+            {#each col as row, x}
+                <Cell {y} {x}/>
+            {/each}
+        </div>
+    {/each}
+</div>
 
-
+<Keyboard />
