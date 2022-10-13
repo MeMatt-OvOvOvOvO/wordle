@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.2",
+    "@zerodevx/svelte-toast": "^0.8.0",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.16",
     "svelte": "^3.49.0",
@@ -90,6 +91,7 @@
     "supports-preserve-symlinks-flag": "^1.0.0",
     "svelte-hmr": "^0.15.0",
     "svelte-routing": "^1.6.0",
+    "svelte-simple-modal": "^1.4.1",
     "to-regex-range": "^5.0.1",
     "update-browserslist-db": "^1.0.9",
     "util-deprecate": "^1.0.2",

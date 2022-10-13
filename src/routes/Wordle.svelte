@@ -1,35 +1,23 @@
 <script>
-    import { board } from "../store.js";
+    import {board, gameOver} from "../store.js";
     import Cell from "./Cell.svelte";
     import Keyboard from "./Keyboard.svelte";
-
-    let url_string = window.location
-    let url = new URL(url_string)
-    let num = parseInt(url.searchParams.get("num"))
-    console.log(num+1)
-
-    async function fetchJSON() {
-        const response = await fetch('https://random-word-api.herokuapp.com/word');
-        const word = await response.json();
-        return word;
-    }
-
-    fetchJSON().then(word => {
-        word
-        console.log(word)
-    });
-
-
-
+    import GameOver from "./GameOver.svelte";
+    import {fade} from "svelte/transition"
 </script>
-<div class="m-16">
-    {#each $board as col, y}
-        <div class="flex justify-center items-center">
-            {#each col as row, x}
-                <Cell {y} {x}/>
+{#if $gameOver == true}
+    <GameOver/>
+{:else}
+    <div in:fade={{duration: 800}}>
+        <div class="m-8">
+            {#each $board as col, y}
+                <div class="flex justify-center items-center">
+                    {#each col as row, x}
+                        <Cell {y} {x}/>
+                    {/each}
+                </div>
             {/each}
         </div>
-    {/each}
-</div>
-
-<Keyboard />
+        <Keyboard />
+    </div>
+{/if}
