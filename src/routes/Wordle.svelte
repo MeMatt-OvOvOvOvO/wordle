@@ -4,6 +4,7 @@
     import Keyboard from "./Keyboard.svelte";
     import GameOver from "./GameOver.svelte";
     import {fade} from "svelte/transition"
+
 </script>
 {#if $gameOver == true}
     <GameOver/>

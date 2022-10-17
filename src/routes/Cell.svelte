@@ -21,6 +21,16 @@
 		color: white;
 	}
 
+    :global(body.light-mode) .correct {
+        background-color: aqua;
+    }
+    :global(body.light-mode) .close {
+        background-color: darkslateblue;
+    }
+    :global(body.light-mode) .incorrect {
+        background-color: hotpink;
+    }
+
     .cell{
         width: 50px;
         height: 50px;
